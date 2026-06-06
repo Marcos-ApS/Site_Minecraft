@@ -1,0 +1,246 @@
+@font-face{
+    font-family: "Minecraft";
+    src: url("/src/assets/Fonts/Minecraftia-Regular.ttf") format("truetype");
+}
+@keyframes moverNuvens {
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: -300px;
+    }
+}
+@keyframes fluir {
+    0%{
+        background-position-y: 0;
+    }
+    100%{
+        background-position-y: 300px ;
+    }
+    
+}
+:root{
+    --header-height: 6.25rem;
+    --cor-gradientCeu: linear-gradient(#4aa8ff, #87ceeb);
+    --cor-gradientNoite: linear-gradient(#020111,#0b1d51,#1b3b6f);
+    --black: #000000;
+    --white: #ffffff;  
+
+}
+    
+
+body{
+    font-family: "Minecraft";
+    margin: 0px;
+    
+
+}
+
+header{
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    height: var(--header-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0px 100px 0px 100px;
+    align-items: center;
+
+    z-index: 10;   
+}
+
+.nav-header{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    align-items: center;
+    margin: 10px;
+    width: 750px;
+
+}
+main{
+    margin-top: var(--header-height);
+}
+.logo{
+    height: 80px;
+    width: 193px;
+    justify-content: left;
+    background: transparent;
+}
+
+.img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    align-items: center;
+
+}
+h2{
+    color: var(--white);
+    font-size: 1.5em;
+}
+
+.botao{
+    width: clamp(64px, 20vw, 256px);
+    height: clamp(11px, 4vw, 46px);
+    cursor: pointer;
+    border: none;
+    background-image: url(/src/assets/Imagens/botao_mine\ \(1\).webp);
+    border: black 2px solid;
+    padding-top: 1em;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    font-family: "Minecraft";
+    color: var(--white);
+    font-size: 1em;
+    transition: 0.01s;
+    text-shadow: 
+        -2px -2px 0 var(--black),
+         1px -1px 0 var(--black),
+        -1px  1px 0 var(--black),
+         1px  1px 0 var(--black);
+    
+}
+.botao:hover{
+    filter: brightness(1.15);
+}
+.botao:active{
+    transform: translateY(3px);
+    filter: brightness(0.9);
+    border: white 2px solid;
+}
+.botaoNav{
+    background: none;
+    border: none;
+    transition: 0.3s ;
+    position: relative;
+    cursor: pointer;
+    font-family: "Minecraft";
+
+}
+.botaoNav:hover{
+    transform: scale(1.3);
+}
+.botaoNav::after{
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: var(--white);
+    transform: translateX(-50%);
+    transition: width 0.5s linear;
+}
+.botaoNav:hover::after{
+    width: 80%;
+}
+
+.OverWorld header{
+    background: url("/src/assets/Imagens/ceu_def.webp") repeat-x, var(--cor-gradientCeu);
+    --white:var(--black);
+    animation: moverNuvens 60s linear infinite;
+}
+.OverWorld.Noite header{
+    background: url("/src/assets/Imagens/ceuNoite.webp") repeat-x, var(--cor-gradientNoite);
+    animation: moverNuvens 60s linear infinite;
+    --white:#ffffff; 
+}
+.Nether header{
+    background: url("/src/assets/Imagens/lava.webp") repeat-x, var(--cor-gradientNoite);
+    background-repeat: repeat;
+    animation: fluir 15s linear infinite;
+}
+.End header{
+    background: url("/src/assets/Imagens/end_portal.webp") repeat-x, var(--cor-gradientNoite);
+    background-repeat: repeat;
+    animation: fluir 60s linear infinite;
+    --grama: url("/src/assets/Imagens/end_stone_grama.webp");
+}
+.Ocean header{
+    background: url("/src/assets/Imagens/agua.webp") repeat-x, var(--cor-gradientNoite);
+    animation: moverNuvens 30s linear infinite;
+}
+.OverWorld{
+    --grama: url("/src/assets/Imagens/blocoTerraGrama.webp");
+}
+.OverWorld.Noite{
+    --grama: url("/src/assets/Imagens/blocoTerraGrama.webp");
+}
+.Nether{
+    --grama: url("/src/assets/Imagens/nylium_netherrack.webp");
+}
+.End{
+    --grama: url("/src/assets/Imagens/end_stone_grama.webp");
+}
+.Ocean{
+    --grama: url("/src/assets/Imagens/prismarine.webp");
+}
+
+.dimensoes{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+    justify-items: center;
+    padding-top: 3%;
+    gap: 20px;
+}
+
+.grama{
+    height: 130px;
+    background-image: var(--grama);
+    background-repeat: repeat-x;
+    background-position: top;
+    margin-top: 0px;
+    position:sticky;
+}
+.grama::before{
+    content: "";
+    position: fixed;
+
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+
+    height: 130px;
+
+    background-image: var(--grama);
+    background-repeat: repeat-x;
+
+    z-index: -1;
+}
+.OverWorld .terra{
+    background-image: url(/src/assets/Imagens/blocoTerra.webp);
+    background-repeat: repeat;
+    min-height: 100vh
+}
+.OverWorld.Noite .terra{
+    background-image: url(/src/assets/Imagens/blocoTerra.webp);
+    background-repeat: repeat;
+    min-height: 100vh
+}
+.Nether .terra{
+    background-image: url(/src/assets/Imagens/netherrack.webp);
+    background-repeat: repeat;
+    min-height: 100vh
+}
+.End .terra{
+    background-image: url(/src/assets/Imagens/end_stone.webp);
+    background-repeat: repeat;
+    min-height: 100vh
+}
+.Ocean .terra{
+    background-image: url(/src/assets/Imagens/prismarine.webp);
+    background-repeat: repeat;
+    min-height: 100vh
+}
