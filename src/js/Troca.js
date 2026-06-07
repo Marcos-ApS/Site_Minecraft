@@ -1,10 +1,14 @@
 const botoes = document.querySelectorAll(".botao");
+const SomClick = document.getElementById("SomClick");
 const body = document.body;
 
 const dimensoes = ["OverWorld", "Nether", "End", "Ocean"];
 
 botoes.forEach(botao => {
     botao.addEventListener("click", () => {
+
+        SomClick.currentTime = 0;
+        SomClick.play();
 
         const dimensao = botao.dataset.dimensao;
 
@@ -18,5 +22,6 @@ botoes.forEach(botao => {
         });
 
         body.classList.add(dimensao);
+        
     });
 });
