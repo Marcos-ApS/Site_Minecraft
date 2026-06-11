@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja</title>
+    <title>Minecraft Center</title>
+    <link rel="icon" href="src/assets/Imagens/Bloco.3d.png">
     <link rel="stylesheet" href="src/css/styles.css">
 </head>
+
 <body class="OverWorld">
     <header>
         <div class="logo">
             <img class="img" src="src/assets/Imagens/Logo.webp" alt="Minecraft">
         </div>
-            <nav class="nav-header">
-                <button class="botaoNav"><h2>Home</h2></button>
-                <button class="botaoNav"><h2>Redstone</h2></button>
-                <button class="botaoNav"><h2>Explorar</h2></button>
-            </nav>
+        <nav class="nav-header">
+            <a href="#Home"><button class="botaoNav">
+                    <h2>Home</h2>
+            </button></a>
+            <a href="#Redstone"><button class="botaoNav">
+                    <h2>Redstone</h2>
+            </button></a>
+            <a href="#Explorar"><button class="botaoNav">
+                    <h2>Explorar</h2>
+            </button></a>
+        </nav>
     </header>
     <main>
         <div class="grama">
@@ -31,16 +40,23 @@
                 </button>
                 <button class="botao" data-dimensao="Ocean">
                     <h3>Ocean</h3>
-                </button>  
+                </button>
             </nav>
         </div>
-    <section class="terra">
-        <div>
-                Minecraft
+
+        <div class="terra" id="Home">
+            <strong>Minecraft</strong>
         </div>
+    </main>
+    <section class="redstone" id="Redstone">
+        <strong>Redstone</strong>
     </section>
-    </main>  
-    <audio id="SomClick" src="src/assets/sons/click.ogg"></audio>  
-    <script  src="src/js/Troca.js"></script>
+    <article class="Warden" id="Explorar">
+        <strong>Warden</strong>
+    </article>
+
+    <audio id="SomClick" src="src/assets/Audio/click.ogg"></audio>
+    <script src="src/js/Troca.js"></script>
 </body>
+
 </html>
