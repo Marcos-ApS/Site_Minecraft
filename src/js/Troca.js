@@ -26,6 +26,11 @@ botoes.forEach(botao => {
         
     });
 });
+document.querySelectorAll(".lever").forEach(lever => {
+    lever.addEventListener("click", () => {
+        lever.parentElement.classList.toggle("On");
+    });
+});
 
 const dirt = document.querySelector(".grama")
 window.addEventListener('scroll', () => {
@@ -35,7 +40,7 @@ window.addEventListener('scroll', () => {
     const percentage = (scrollTop / docHeight) * 100;
   
 
-    if(percentage >= 39.8) {
+    if(percentage >= 43) {
         dirt.style.display = "none";
     }else {
         dirt.style.display = "flex";
