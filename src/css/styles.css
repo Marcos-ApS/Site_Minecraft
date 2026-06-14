@@ -19,6 +19,28 @@
     }
     
 }
+@keyframes andar{
+
+    /* Começa fora da tela */
+    0%{
+        left: -100px;
+    }
+
+    /* Chega ao centro exatamente quando começa a explosão */
+    75%{
+        left: calc(50% - 40px);
+    }
+
+    /* Fica parado durante a explosão */
+    99%{
+        left: calc(50% - 40px);
+    }
+
+    /* Reinicia */
+    100%{
+        left: -100px;
+    }
+}
 @media (max-width: 900px){
     header{
         flex-direction: column;
@@ -74,6 +96,34 @@ header{
     padding-left: clamp(0px, 4vw, 100px);
     align-items: center;
     z-index: 10;   
+}
+footer{
+    background-image: url(/src/assets/Imagens/bedrock.webp);
+    background-repeat: repeat;
+    height: 260px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 5em;
+    position: relative;
+    overflow: hidden;
+    color: var(--white);
+}
+
+.creeper{
+    position: absolute;
+    bottom: 10px;
+    left: -100px;
+
+    animation: andar 3.9999s linear infinite;
+}
+.minecraftSite{
+    background: none;
+    border: none;
+    background-image: url(/src/assets/Imagens/minecraft_logo.webp);
+    height: 50px;
+    width: 300px;
+    
 }
 
 .nav-header{
