@@ -50,7 +50,7 @@
     --cor-gradientNoite: linear-gradient(#020111,#0b1d51,#1b3b6f);
     --black: #000000;
     --white: #ffffff;  
-
+    --block: 130px;
 }
 
 body{
@@ -228,12 +228,16 @@ h2{
 
 
 .grama{
-    height: 130px;
+    height: var(--block);
     background-image: var(--grama);
     background-repeat: repeat-x;
     background-position: top;
     margin-top: 0px;
     position:sticky;
+}
+.grama.oculta{
+    opacity: 0;
+    pointer-events: none;
 }
 .grama::before{
     content: "";
@@ -241,7 +245,7 @@ h2{
     top: var(--header-height);
     left: 0;
     right: 0;
-    height: 130px;
+    height: var(--block);
     background-image: var(--grama);
     background-repeat: repeat-x;
     z-index: -1;
@@ -285,7 +289,7 @@ h2{
 .redstone{
     flex-direction: row;
     display: grid;
-    grid-template-columns: 130px 1fr 130px;
+    grid-template-columns: var(--block) 1fr var(--block);
     gap: 5px;
     align-items: center;
     height: 150px;
@@ -305,23 +309,38 @@ h2{
     background-image: url(/src/assets/Imagens/lamp_on.webp);
     box-shadow: 0 0 75px #b19700;
 }
+.redstone.On .piston{
+    background-image: url(/src/assets/Imagens/piston_in.webp);
+    width: 260px;
+}
+
 
 .dust{
     background-image: url(/src/assets/Imagens/redstone_dust_off.webp);
-    height: 130px;
-    width: 110%;
+    height: var(--block);
+    width: 100%;
 }
 .lamp{
     background-image: url(/src/assets/Imagens/lamp_off.webp);
-    height: 130px;
-    width: 130px;
+    height: var(--block);
+    width: var(--block);
+}
+.piston{
+    background-image: url(/src/assets/Imagens/piston_out.webp);
+    height: var(--block);
+    width: var(--block);
+}
+.note{
+    background-image: url(/src/assets/Imagens/note_block.webp);
+    width: var(--block);
+    height: var(--block);
 }
 .lever{
     background: none;
     border: none;
     background-image: url(/src/assets/Imagens/lever_off.webp);
-    height: 130px;
-    width: 130px;
+    height: var(--block);
+    width: var(--block);
    
 }
 

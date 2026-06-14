@@ -49,18 +49,22 @@
         </div>
     </main>
     <section class="stone" id="Redstone">
-        <div class="redstone">
-                <button class="lever"></button>
-                <div class="dust"></div>
-                <div class="lamp"></div>
+        <div class="redstone" data-tipo="lamp">
+            <button class="lever"></button>
+            <div class="dust"></div>
+            <div class="lamp"></div>
         </div>
-        
-        <div class="redstone">
 
+        <div class="redstone" data-tipo="piston">
+            <button class="lever"></button>
+            <div class="dust"></div>
+            <div class="piston"></div>
         </div>
         
-        <div class="redstone">
-            
+        <div class="redstone" data-tipo="note">
+            <button class="lever"></button>
+            <div class="dust"></div>
+            <div class="note"></div>
         </div>
     </section>
     <article class="Warden" id="Explorar">
@@ -68,7 +72,13 @@
     </article>
 
     <audio id="SomClick" src="src/assets/Audio/click.ogg"></audio>
-    <script src="src/js/Troca.js"></script>
+    <audio id="inLever" src="src/assets/Audio/in_lever.ogg"></audio>
+    <audio id="outLever" src="src/assets/Audio/out_lever.ogg"></audio>
+    <audio id="inPiston" src="src/assets/Audio/in_piston.ogg"></audio>
+    <audio id="outPiston" src="src/assets/Audio/out_piston.ogg"></audio>
+    <audio id="lavaChicken" src="src/assets/Audio/lava_chicken.ogg"></audio>
+    
+    <script src="src/js/Troca.js" defer></script>
 </body>
 
 </html>

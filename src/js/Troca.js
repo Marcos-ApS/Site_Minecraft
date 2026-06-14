@@ -1,13 +1,18 @@
 const botoes = document.querySelectorAll(".botao");
+const dirt = document.querySelector(".grama");
+const lavaChicken = document.getElementById("lavaChicken");
 const SomClick = document.getElementById("SomClick");
-const Cabecalho = document.getElementsByClassName(".header")
+const inLever = document.getElementById("inLever");
+const outLever = document.getElementById("outLever");
+const inPiston = document.getElementById("inPiston")
+const outPiston = document.getElementById("outPiston")
+const Cabecalho = document.querySelector(".header")
 const body = document.body;
 
 const dimensoes = ["OverWorld", "Nether", "End", "Ocean"];
 
 botoes.forEach(botao => {
     botao.addEventListener("click", () => {
-
         SomClick.currentTime = 0;
         SomClick.play();
 
@@ -28,21 +33,64 @@ botoes.forEach(botao => {
 });
 document.querySelectorAll(".lever").forEach(lever => {
     lever.addEventListener("click", () => {
-        lever.parentElement.classList.toggle("On");
+
+        
+        
+        const circuito = lever.parentElement;
+        const ativo = circuito.classList.toggle("On");
+        console.log(lavaChicken);
+
+        if (ativo) {
+            inLever.currentTime = 0;
+            inLever.play();
+
+        switch(circuito.dataset.tipo){
+
+            case "note":
+                lavaChicken.currentTime = 0;
+                lavaChicken.play();
+                break;
+
+            case "piston":
+                inPiston.currentTime = 0;
+                inPiston.play();
+                break;
+
+            case "lamp":
+                console.log("Lâmpada ligada");
+                break;
+        }
+
+        } else {
+
+            outLever.currentTime = 0;
+            outLever.play();
+
+            switch(circuito.dataset.tipo){
+
+                case "piston":
+                    outPiston.currentTime = 0;
+                    outPiston.play();
+                    break;
+
+                 case "note":
+                    lavaChicken.pause();
+                    lavaChicken.currentTime = 0;
+                    break;
+            }   
+        }
+
     });
 });
 
-const dirt = document.querySelector(".grama")
-window.addEventListener('scroll', () => {
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  
-    const percentage = (scrollTop / docHeight) * 100;
-  
+const redstone = document.querySelector("#Redstone");
+window.addEventListener("scroll", () => {
+    const posicao = redstone.getBoundingClientRect().top;
+    console.log(redstone.getBoundingClientRect().top);
 
-    if(percentage >= 43) {
-        dirt.style.display = "none";
-    }else {
-        dirt.style.display = "flex";
+    if (posicao <= 200) {
+        dirt.classList.add("oculta");
+    } else {
+        dirt.classList.remove("oculta");
     }
 });
