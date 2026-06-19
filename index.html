@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +24,7 @@
             <a href="#Explorar"><button class="botaoNav">
                     <h2>Explorar</h2>
             </button></a>
-        </nav>
+                    </nav>
     </header>
     <main>
         <div class="grama">
@@ -43,9 +43,21 @@
                 </button>
             </nav>
         </div>
-
         <div class="terra" id="Home">
-            <strong>Minecraft</strong>
+            <div class="txtBox">
+                <div class="pagina">Minecraft é um jogo de aventura sandbox em 3D desenvolvido pela Mojang Studios em que o jogador interage com um ambiente tridimensional totalmente modificável feito de blocos e entidades. Sua jogabilidade diversa permite que o jogador escolha a forma como joga, com inúmeras possibilidades</div>
+            </div>
+            <div class="modelBox">
+                <model-viewer
+                    id="mob3d"
+                    src="src/assets/models/minecraft_bee.glb"
+                    shadow-intensity="1"
+                    exposure="1.2"
+                    camera-controls
+                    auto-rotate
+                    autoplay>
+                </model-viewer>
+            </div>
         </div>
     </main>
     <section class="stone" id="Redstone">
@@ -71,7 +83,7 @@
         <strong>Warden</strong>
     </article>
     <footer>
-        <img src="src/assets/gif/creeper.gif" class="creeper" alt="creeper">
+        <img class="creeper" src="src/assets/gif/creeper.gif"  alt="creeper">
             <div>
             <img src="src/assets/Imagens/logoMojang.webp">
             </div>

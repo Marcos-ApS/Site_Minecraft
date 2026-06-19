@@ -21,51 +21,21 @@
 }
 @keyframes andar{
 
-    /* Começa fora da tela */
-    0%{
+    0%, 100%{
         left: -100px;
     }
 
-    /* Chega ao centro exatamente quando começa a explosão */
     75%{
-        left: calc(50% - 40px);
+        left: calc(50vw - 102px);
     }
 
-    /* Fica parado durante a explosão */
     99%{
-        left: calc(50% - 40px);
-    }
-
-    /* Reinicia */
-    100%{
-        left: -100px;
+        left: calc(50vw - 102px);
     }
 }
-@media (max-width: 900px){
-    header{
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    
-    }
 
-    .nav-header{
-        position: static;
-        transform: none;
-        width: auto;
-        display: flex;
-        justify-content: center;
-        margin: 0px;
-        gap: 20px;
-    }
 
-    :root{
-        --header-height: 11rem;
-    }
-    .logo{
-        width: clamp(80px, 20vw, 120px);
-    }
-}
+
 :root{
     --header-height: 6.25rem;
     --cor-gradientCeu: linear-gradient(#4aa8ff, #87ceeb);
@@ -74,9 +44,10 @@
     --white: #ffffff;  
     --block: 130px;
 }
-
-body{
+*{
     font-family: "Minecraft";
+}
+body{
     margin: 0px;
     
 
@@ -115,7 +86,7 @@ footer{
     bottom: 10px;
     left: -100px;
 
-    animation: andar 3.9999s linear infinite;
+    animation: andar 4s linear;
 }
 .minecraftSite{
     background: none;
@@ -123,7 +94,10 @@ footer{
     background-image: url(/src/assets/Imagens/minecraft_logo.webp);
     height: 50px;
     width: 300px;
-    
+    cursor: pointer;
+}
+.minecraftSite:hover{
+    transform: scale(1.2);
 }
 
 .nav-header{
@@ -165,8 +139,6 @@ h2{
     transition: 0.3s ;
     position: relative;
     cursor: pointer;
-    font-family: "Minecraft";
-
 }
 
 .botaoNav:hover{
@@ -201,7 +173,6 @@ h2{
     background-position: center;
     justify-content: center;
     align-items: center;
-    font-family: "Minecraft";
     color: var(--white);
     font-size: 1em;
     transition: 0.01s;
@@ -223,7 +194,61 @@ h2{
     filter: brightness(0.9);
     border: white 2px solid;
 }
+.txtBox{
+    background-image: url("/src/assets/Imagens/book.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: justify;
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 360px;
+    height: calc(360px * 360 / 292);
+    margin-left: 5vw;
+    margin-right: 5vw;
+    z-index: 1;
+    
+}
+.modelBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 360px;
+    height: calc(360px * 360 / 292);
+    margin-left: 5vw;
+    margin-right: 5vw;
+    z-index: 1;
+    border: 5px black solid;
+}
+.pagina{
+    width: 55%;
+    height: 45%;
+    text-align: justify;
+    overflow-y:scroll;
+    padding-left: 50px;
+    padding-right: 35px;
+    padding-top: 3px;
+    padding-bottom: 40px;
+    color: var(--black);
+}
+.pagina::-webkit-scrollbar{
+    width: 8px;
+}
 
+.pagina::-webkit-scrollbar-thumb{
+    background: #79320c;
+}
+
+.pagina::-webkit-scrollbar-track{
+    background: transparent;
+}
+#mob3d{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
 .dimensoes{
     display: grid;
     width: 100%;
@@ -300,7 +325,14 @@ h2{
     background-repeat: repeat-x;
     z-index: -1;
 }
-
+.terra{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    border: none;
+    z-index: 0;
+}
 .OverWorld .terra{
     background-image: url(/src/assets/Imagens/blocoTerra.webp);
     background-repeat: repeat;
@@ -406,4 +438,44 @@ h2{
 }
 #Redstone, #Explorar{
     scroll-margin-top: var(--header-height);
+}
+@media (max-width: 600px){
+
+    .terra{
+        flex-direction: column;
+        height: 150vh;
+    }
+    .txtBox,
+    .modelBox{
+        width: 266px;
+        height: calc(260px * 360 / 292);
+    }
+    .txtBox{
+        margin-top: 50px;
+    }
+    .modelBox{
+        margin-top: 30px;
+    }
+}
+@media (max-width: 900px){
+    header{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+    }
+
+    .nav-header{
+        position: static;
+        transform: none;
+        width: auto;
+        display: flex;
+        justify-content: center;
+        margin: 0px;
+        gap: 20px;
+    }
+
+    .logo{
+        width: clamp(80px, 20vw, 120px);
+    }
 }

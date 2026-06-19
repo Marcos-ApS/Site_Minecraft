@@ -4,12 +4,27 @@ const lavaChicken = document.getElementById("lavaChicken");
 const SomClick = document.getElementById("SomClick");
 const inLever = document.getElementById("inLever");
 const outLever = document.getElementById("outLever");
-const inPiston = document.getElementById("inPiston")
-const outPiston = document.getElementById("outPiston")
-const Cabecalho = document.querySelector(".header")
-const body = document.body;
+const inPiston = document.getElementById("inPiston");
+const outPiston = document.getElementById("outPiston");
+const Cabecalho = document.querySelector(".header");
 
+const body = document.body;
+const mob3d = document.getElementById("mob3d");
 const dimensoes = ["OverWorld", "Nether", "End", "Ocean"];
+const pagina = document.querySelector(".pagina");
+const textos = {
+
+    OverWorld: "A Abelha é um mob neutro encontrado em florestas floridas. Ela coleta pólen das flores e produz mel em suas colmeias. Atacará o jogador apenas se for provocada.",
+
+    Noite: "O Zumbi é um mob hostil que aparece durante a noite ou em locais escuros. Ele persegue jogadores e aldeões, atacando corpo a corpo até ser derrotado.",
+
+    Nether: "O Wither é um poderoso chefe invocado pelos jogadores no Nether ou em outras dimensões. Ele dispara projéteis explosivos e é considerado um dos inimigos mais perigosos do Minecraft.",
+
+    End: "O Enderman é um mob neutro da dimensão End. Ele pode se teleportar e só se torna hostil quando o jogador olha diretamente para seus olhos.",
+
+    Ocean: "A Lula é um mob passivo encontrado em rios e oceanos. Ela nada livremente pela água e solta bolsas de tinta quando é atacada."
+};
+
 
 botoes.forEach(botao => {
     botao.addEventListener("click", () => {
@@ -20,14 +35,51 @@ botoes.forEach(botao => {
 
         if(dimensao == "OverWorld" && body.classList.contains("OverWorld")){
             body.classList.toggle("Noite");
+            
+            if(body.classList.contains("Noite")){
+                mob3d.src = "src/assets/models/minecraft_-_zombie.glb";
+                pagina.textContent = textos.Noite;
+                hostil = true
+            }else{
+                mob3d.src = "src/assets/models/minecraft_bee.glb";
+            }
             return;
         }
 
         dimensoes.forEach(m => {
             body.classList.remove(m);
         });
-
+        pagina.textContent = textos[dimensao];
         body.classList.add(dimensao);
+
+        let hostil = false
+
+        switch(dimensao){
+
+            case "OverWorld":
+                mob3d.src = "src/assets/models/minecraft_bee.glb";
+                pagina.textContent = textos.OverWorld;
+                hostil = false;
+                break;
+
+            case "Nether":
+                mob3d.src = "src/assets/models/minecraft_animated_wither_boss.glb";
+                pagina.textContent = textos.Nether;
+                hostil = true;
+                break;
+
+            case "End":
+                mob3d.src = "src/assets/models/minecraft_-_enderman.glb";
+                pagina.textContent = textos.End;
+                hostil = true;
+                break;
+
+            case "Ocean":
+                mob3d.src = "src/assets/models/minecraft_-_squid.glb";
+                pagina.textContent = textos.Ocean;
+                hostil = false;
+                break;
+        }
         
     });
 });
@@ -38,7 +90,6 @@ document.querySelectorAll(".lever").forEach(lever => {
         
         const circuito = lever.parentElement;
         const ativo = circuito.classList.toggle("On");
-        console.log(lavaChicken);
 
         if (ativo) {
             inLever.currentTime = 0;
@@ -49,6 +100,7 @@ document.querySelectorAll(".lever").forEach(lever => {
             case "note":
                 lavaChicken.currentTime = 0;
                 lavaChicken.play();
+                console.log("lavaChicken")
                 break;
 
             case "piston":
@@ -94,3 +146,19 @@ window.addEventListener("scroll", () => {
         dirt.classList.remove("oculta");
     }
 });
+const creeper = document.querySelector(".creeper");
+
+function reiniciarCreeper() {
+    console.log("reiniciando");
+
+    creeper.style.animation = "none";
+    creeper.offsetHeight;
+    creeper.style.animation = "andar 4s linear";
+
+    const src = creeper.src;
+    creeper.src = "";
+    creeper.src = src;
+}
+
+creeper.addEventListener("animationend", reiniciarCreeper);
+
