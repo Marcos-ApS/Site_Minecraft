@@ -71,14 +71,14 @@ header{
 footer{
     background-image: url(/src/assets/Imagens/bedrock.webp);
     background-repeat: repeat;
-    height: 260px;
+    height: 30vh;
     justify-content: center;
     align-items: center;
     display: flex;
     gap: 5em;
     position: relative;
-    overflow: hidden;
     color: var(--white);
+    flex-direction: row;
 }
 
 .creeper{
@@ -160,8 +160,8 @@ h2{
 }
 
 .botao{
-    width: clamp(64px, 20vw, 256px);
-    height: clamp(11px, 4vw, 46px);
+    width: clamp(128px, 20vw, 256px);
+    height: clamp(23px, 5vw, 46px);
     cursor: pointer;
     border: none;
     background-image: url(/src/assets/Imagens/botao_mine\ \(1\).webp);
@@ -184,7 +184,7 @@ h2{
     
 }
 .botao h3{
-    font-size: clamp(55%, 2vw, 1.33em);
+    font-size: clamp(70%, 2vw, 1.33em);
 }
 .botao:hover{
     filter: brightness(1.15);
@@ -215,12 +215,17 @@ h2{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 360px;
-    height: calc(360px * 360 / 292);
+    width: 444px;
+    height: 444px;
     margin-left: 5vw;
     margin-right: 5vw;
     z-index: 1;
-    border: 5px black solid;
+    background-image: url(/src/assets/Imagens/inventario.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.modelBox.deep{
+    background-image: none;
 }
 .pagina{
     width: 55%;
@@ -244,10 +249,14 @@ h2{
 .pagina::-webkit-scrollbar-track{
     background: transparent;
 }
-#mob3d{
+.mob3d{
+    width: 85%;
+    height: 85%;
+    background: transparent;
+}
+.mob3d.Warden{
     width: 100%;
     height: 100%;
-    background: transparent;
 }
 .dimensoes{
     display: grid;
@@ -431,6 +440,10 @@ h2{
     background-repeat: repeat;
     min-height: 100vh;
     color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 #Home{
@@ -441,10 +454,6 @@ h2{
 }
 @media (max-width: 600px){
 
-    .terra{
-        flex-direction: column;
-        height: 150vh;
-    }
     .txtBox,
     .modelBox{
         width: 266px;
@@ -464,6 +473,10 @@ h2{
         align-items: center;
     
     }
+    .terra{
+        flex-direction: column;
+        height: 150vh;
+    }
 
     .nav-header{
         position: static;
@@ -478,4 +491,10 @@ h2{
     .logo{
         width: clamp(80px, 20vw, 120px);
     }
+    footer{
+        flex-direction: column;
+        min-height: 80vh;
+        
+    }
+    
 }

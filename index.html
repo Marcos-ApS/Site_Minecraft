@@ -49,6 +49,7 @@
             </div>
             <div class="modelBox">
                 <model-viewer
+                    class="mob3d"
                     id="mob3d"
                     src="src/assets/models/minecraft_bee.glb"
                     shadow-intensity="1"
@@ -79,15 +80,24 @@
             <div class="note"></div>
         </div>
     </section>
-    <article class="Warden" id="Explorar">
-        <strong>Warden</strong>
-    </article>
+    <section class="Warden deep" id="Explorar">
+        <div class="modelBox deep">
+            <model-viewer
+                    class="mob3d Warden"
+                    id="mob3dWarden"
+                    src="src/assets/models/warden.glb"
+                    shadow-intensity="1"
+                    exposure="1.2"
+                    camera-controls>
+                </model-viewer>
+        </div>
+    </section>
     <footer>
         <img class="creeper" src="src/assets/gif/creeper.gif"  alt="creeper">
-            <div>
+        <div>
             <img src="src/assets/Imagens/logoMojang.webp">
-            </div>
-            <div><h3>Desenvolvido por Marcos Antonio</h3></div>
+        </div>
+        <div><h3>Desenvolvido por Marcos Antonio</h3></div>
             <a href="https://www.minecraft.net/fr-fr" target="_blank"><button class="minecraftSite"></button></a>
     </footer>
 

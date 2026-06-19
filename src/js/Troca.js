@@ -7,9 +7,9 @@ const outLever = document.getElementById("outLever");
 const inPiston = document.getElementById("inPiston");
 const outPiston = document.getElementById("outPiston");
 const Cabecalho = document.querySelector(".header");
-
 const body = document.body;
 const mob3d = document.getElementById("mob3d");
+const mob3dWarden = document.getElementById("mob3dWarden");
 const dimensoes = ["OverWorld", "Nether", "End", "Ocean"];
 const pagina = document.querySelector(".pagina");
 const textos = {
@@ -22,7 +22,7 @@ const textos = {
 
     End: "O Enderman é um mob neutro da dimensão End. Ele pode se teleportar e só se torna hostil quando o jogador olha diretamente para seus olhos.",
 
-    Ocean: "A Lula é um mob passivo encontrado em rios e oceanos. Ela nada livremente pela água e solta bolsas de tinta quando é atacada."
+    Ocean: "O Axolote é um mob aquático amigável encontrado em cavernas exuberantes. Ele auxilia o jogador em combates debaixo d'água e é uma das criaturas mais raras do Minecraft."
 };
 
 
@@ -42,6 +42,7 @@ botoes.forEach(botao => {
                 hostil = true
             }else{
                 mob3d.src = "src/assets/models/minecraft_bee.glb";
+                pagina.textContent = textos.OverWorld;
             }
             return;
         }
@@ -75,7 +76,7 @@ botoes.forEach(botao => {
                 break;
 
             case "Ocean":
-                mob3d.src = "src/assets/models/minecraft_-_squid.glb";
+                mob3d.src = "src/assets/models/axolote_semi_hecho.glb";
                 pagina.textContent = textos.Ocean;
                 hostil = false;
                 break;
@@ -162,3 +163,14 @@ function reiniciarCreeper() {
 
 creeper.addEventListener("animationend", reiniciarCreeper);
 
+let click = 0;
+
+mob3dWarden.addEventListener("dblclick", () => {
+
+        mob3dWarden.currentTime = 0;
+        mob3dWarden.play();
+        console.log("warden");
+        setTimeout(() => {
+            mob3dWarden.pause();
+        }, 2700);
+});
