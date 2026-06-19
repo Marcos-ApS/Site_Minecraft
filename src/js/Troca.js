@@ -6,6 +6,7 @@ const inLever = document.getElementById("inLever");
 const outLever = document.getElementById("outLever");
 const inPiston = document.getElementById("inPiston");
 const outPiston = document.getElementById("outPiston");
+const WardenBoom = document.getElementById("SonicBoom");
 const Cabecalho = document.querySelector(".header");
 const body = document.body;
 const mob3d = document.getElementById("mob3d");
@@ -167,10 +168,17 @@ let click = 0;
 
 mob3dWarden.addEventListener("dblclick", () => {
 
+        mob3dWarden.pause();
         mob3dWarden.currentTime = 0;
+        WardenBoom.pause();
+        WardenBoom.currentTime = 0;
         mob3dWarden.play();
         console.log("warden");
+        setTimeout(() =>{
+            WardenBoom.play();
+        },1350);
         setTimeout(() => {
             mob3dWarden.pause();
+            mob3dWarden.currentTime = 0;
         }, 2700);
 });
